@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.drive;
 
 import androidx.annotation.NonNull;
 
+import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.localization.TwoTrackingWheelLocalizer;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -33,22 +34,23 @@ import java.util.List;
  *    \--------------/
  *
  */
+@Config
 public class TwoWheelTrackingLocalizer extends TwoTrackingWheelLocalizer {
 
-    public static double TICKS_PER_REV = 8192;
-    public static double WHEEL_RADIUS = 1; // in
+    public static double TICKS_PER_REV = 2000;
+    public static double WHEEL_RADIUS = 0.62992125984; // in
     public static double GEAR_RATIO = 1; // output (wheel) speed / input (encoder) speed
 
-    public static double PARALLEL_X = 0.75; // X is the up and down direction
-    public static double PARALLEL_Y = 7.5; // Y is the strafe direction
+    public static double PARALLEL_X = 0.6875; // X is the up and down direction
+    public static double PARALLEL_Y = 3.71875; // Y is the strafe direction
 
-    public static double PERPENDICULAR_X = -4.875;
-    public static double PERPENDICULAR_Y = 0.625;
+    public static double PERPENDICULAR_X = -4.1875;
+    public static double PERPENDICULAR_Y = 0.65625;
 
 
     /*PUEDE SER MÁS PRECISO */
-    public static double X_MULTIPLIER = 0.96895327400060670;//0.96299540374; // Multiplier in the X direction
-    public static double Y_MULTIPLIER = 0.96610502876128926;//0.96424147928; // Multiplier in the Y direction
+    public static double X_MULTIPLIER = 0.99477137114;//0.96895327400060670;//0.96299540374; // Multiplier in the X direction
+    public static double Y_MULTIPLIER = 0.99925000736;//0.96610502876128926;//0.96424147928; // Multiplier in the Y direction
 
     // Parallel/Perpendicular to the forward axis
     // Parallel wheel is parallel to the forward axis
@@ -104,8 +106,8 @@ public class TwoWheelTrackingLocalizer extends TwoTrackingWheelLocalizer {
         //  compensation method
 
         return Arrays.asList(
-                encoderTicksToInches(parallelEncoder.getCorrectedVelocity()) * X_MULTIPLIER,
-                encoderTicksToInches(perpendicularEncoder.getCorrectedVelocity()) * Y_MULTIPLIER
+                encoderTicksToInches(parallelEncoder.getRawVelocity()) * X_MULTIPLIER,
+                encoderTicksToInches(perpendicularEncoder.getRawVelocity()) * Y_MULTIPLIER
         );
     }
 }
