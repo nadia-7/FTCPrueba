@@ -1,13 +1,14 @@
 package org.firstinspires.ftc.teamcode.Test;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+@Disabled
 @TeleOp(name="PruebaServos", group="Pushbot")
 public class servos extends LinearOpMode {
 
     servosConfig servos = new servosConfig();
-
     @Override
     public void runOpMode() {
         servos.init(hardwareMap , telemetry);
