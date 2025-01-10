@@ -4,9 +4,11 @@ import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.tel
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class actions {
+
     //==Declarar Webadas Rancias==
     public DcMotor elevador1 = null;
     public DcMotor elevador2 = null;
@@ -62,4 +64,6 @@ public class actions {
         telemetry.addLine("Garra iniciada");
         telemetry.addLine("Garra iniciada");
     }
+
+
 }
